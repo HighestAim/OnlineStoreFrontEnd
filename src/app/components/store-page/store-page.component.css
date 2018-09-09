@@ -1,0 +1,13 @@
+.product {
+  width: 18rem;
+  padding-top: 5px;
+}
+
+.product img {
+  width: auto;
+}
+
+.quantity-input {
+  max-width: 75px;
+  display: inline;
+}

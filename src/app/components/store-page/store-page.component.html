@@ -1,0 +1,28 @@
+<div class="form-inline">
+<div class="form-group mb-2">
+  <label for="categorySelect" class="col-sm-2 col-form-label">Category</label>
+  <div class="col-sm-10">
+  <select id="categorySelect" class="form-control" [(ngModel)]="selectedCategory">
+    <option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
+  </select>
+  </div>
+</div>
+  <div class="form-group mx-sm-3 mb-2">
+    <div class="col-sm-10">
+      <button class="btn btn-primary" (click)="selectCategory(category)">Search</button>
+    </div>
+  </div>
+</div>
+<div class="card-columns" >
+  <div class="product card" *ngFor="let product of products">
+    <img class="card-img-top" src="{{product.url}}" alt="{{product.name}}">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.description}}</p>
+      <p class="card-text"><small class="text-muted">Price: {{product.price}}$</small></p>
+      <p class="card-text"><small class="text-muted">Quantity: <input [(ngModel)]="product.quantity" class="quantity-input form-control" type="number" min="1"/></small></p>
+      <button href="#" class="btn btn-primary" (click)="addProductToCard(product)">Add to card</button>
+      <button *ngIf="isProductInCard(product)" href="#" class="btn btn-secondary" (click)="removeProductFromCard(product)">Remove</button>
+    </div>
+  </div>
+</div>

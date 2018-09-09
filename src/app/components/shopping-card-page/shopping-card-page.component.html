@@ -1,0 +1,23 @@
+<div *ngIf="cardProducts && cardProducts.length > 0">
+  <div class="card-columns">
+    <div class="product card" *ngFor="let product of cardProducts">
+      <img class="card-img-top" src="{{product.url}}" alt="{{product.name}}">
+      <div class="card-body">
+        <button class="btn btn-light"><h5 (click)="openProductDetailsModal(product)" class="card-title">{{product.name}}</h5></button>
+        <p class="card-text"><small class="text-muted">Price: {{product.price}}$</small></p>
+        <p class="card-text"><small class="text-muted">Quantity: <input [(ngModel)]="product.quantity" class="quantity-input form-control" type="number" min="1"/></small></p>
+        <button *ngIf="isProductInCard(product)" href="#" class="btn btn-secondary" (click)="removeProductFromCard(product)">Remove</button>
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <h5>Total Price: {{totalPrice()}}$</h5>
+  </div>
+  <div>
+    <a href="/payment"><button class="btn btn-primary">Go to payment page</button></a>
+  </div>
+</div>
+<div *ngIf="!cardProducts || cardProducts.length == 0">
+  <h5>No selected products</h5>
+</div>
