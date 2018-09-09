@@ -1,5 +1,7 @@
 # OnlineStore
 
+!Important change environment.ts and environment.prod.ts files domain url to backend url.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
 
 ## Development server
